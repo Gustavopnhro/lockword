@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 10rem;
+    background-color: #0077B6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F1F5F2;
+}
+
+header img {
+    height: 6rem;
+}
+
+footer {
+    width: 100%;
+    height: 7rem;
+    background-color: #0077B6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F1F5F2;
+}
+
+
+footer h3 {
+  font-weight: 300;  
+}
+
+section {
+    background-color: #0077B6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 63.6vh;
+}
+
+.generator-box {
+    padding: 1rem;
+    margin: 1.5rem 0rem;
+    background-color: #80DED9;
+    flex-direction: column;
+    display: flex;
+    border-radius: 2rem;
+    border: 10px solid #0077B6;
+    box-shadow: 3px 5px #004970;
+}
+
+#campoSenha {
+    font-size: 1.1rem;
+    padding: 1rem 0.5rem;
+    border-radius: 1rem;
+    border: 0px solid #000;
+    outline: none;
+    color: #0077B6;
+    border: 2px solid white;
+    transition: all .3s ease-in-out;
+}
+
+#campoSenha:focus {
+    outline: none;
+    border: 2px solid #0077B6;
+}
+
+#tamanho {
+    width: 2rem;
+    font-size: 1rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+#gerarSenha {
+    background-color: #0077B6;
+    color: #F1F5F2;
+    outline: none;
+    height: 3rem;
+    width: 15rem;
+    border-radius: 1rem;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 3px 5px #004970;
+    transition: all .3s ease-in-out;
+}
+
+#gerarSenha:hover{
+    box-shadow: 0px 0px ;
+    transform: translateX(10px);
+    transform: translateY(5px);
+}
+
+.checkboxes-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkboxes-area span {
+    font-size: 20px;
+    color: #150578;
+    
+}
+
+.checkboxes-area input {
+    font-size: 20px;
+    padding-left: 1rem;
+    color: #0077B6;
+    border-radius: 1rem;
+    border: 2px solid white;
+}
+
+.checkboxes-area input:focus{
+    outline: none;
+    border: 2px solid #0077B6;
+    transition: all .3s ease-in-out;
+
+}
+
+.generator-box img {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.campo_senha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.campo_senha img{
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    color: #F1F5F2;
+    font-size: 1.5rem;
+}
+
+input {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    outline: none;
+    border: 0px solid #559fc7;
+    padding: 0.5rem;
+    border-radius: 30px;
+    transition: all .3s ease-in-out;
+    font-size: 1.5rem;
+    width: 20rem;
+    height: 2.5rem;
+    text-align: center; 
+}
+
+.btn {
+    width: 15rem;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #F1F5F2;
+    color: #0077B6;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all .3s ease-in-out;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    font-size: 1.5rem;
+
+}
+
+.btn:hover {
+    background-color: #004970;
+    color: #F1F5F2;
+    transform: translateY(2px);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+}
+
+a {
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+
+span {
+    text-decoration: none;
+    font-size: 20px;
+    color: #0077B6;
+    font-weight: 400;
+    background-color: #F1F5F2;
+    transition: all .2s ease-in-out;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+span:hover {
+    text-decoration: none;
+    color: #F1F5F2;
+    font-weight: 400;
+    background-color: #004970;
+    padding: 1rem;
+
+}
+
+.register-button, .login-button, .logout-button {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+
+.bar-icon {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.bar-icon img {
+    height: 3rem;
+}
+
+
+/* Estilos para a barra lateral */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+/* Estilos para o botão que abre a barra lateral */
+#openBtn {
+    position: fixed;
+    z-index: 2;
+    top: 20px;
+    left: 20px;
+}
+
+/* Estilos para o conteúdo da página */
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
