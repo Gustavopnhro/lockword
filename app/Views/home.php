@@ -9,48 +9,49 @@
 <?= $this->endSection('header')?>
 
 <?= $this->section('content')?>
-    <section style="background-color: #F1F5F2">
+    <section>
         <div class="generator-box">
-            <div class="campo_senha">
-                <input type="text" id="campoSenha">
-                <img class="copyicon" src="<?= base_url('/public/img/copy-logo-wt.png') ?>" alt="copy icon">
-            </div>
+        <form action="" method="post" class="generator-box">
+                <label for="password" class="generator-label">Title</label>
+                <input type="text" id="field_title" required>
 
-            <div class="checkboxes-area">
-                <span>Tamanho</span>
-                <input type="number" id="tamanho">
-            </div>
-            <div class="btn-area">
-                <button id="gerarSenha">Gerar</button>
+                <label for="password" class="generator-label">Login</label>
+                <input type="text" id="login_field" placeholder="youremail@aqui.com">
 
-            </div>
+                <label for="password" class="generator-label" >Password</label>
+                <input type="text" id="field_pass" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required>
+                <span id="generate_password"> Generate </span>
 
-        </div>    
+                <label for="text" class="generator-label">Lenght</label>
+                <input type="number" id="lenght">
+
+                <input type="submit" value="Save" id="save_key">
+        </form>                
     </section>
 <script>
-    var campo = document.getElementById("campoSenha");
-    var campoTamanho = document.getElementById("tamanho")
+    var field = document.getElementById("field_pass");
+    var fieldlenght = document.getElementById("lenght")
 
-    var caracteresPermitidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_";
+    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_";
 
 
-    function gerarSenha(tamanho) {
+    function generate_password(lenght) {
 
-        var senha = "";
-        for (var i = 0; i < tamanho; i++) {
-            var indice = Math.floor(Math.random() * caracteresPermitidos.length);
-            senha += caracteresPermitidos.charAt(indice);
+        var password = "";
+        for (var i = 0; i < lenght; i++) {
+            var indice = Math.floor(Math.random() * chars.length);
+            password += chars.charAt(indice);
         }
-        return senha;
+        return password;
     }
 
-    document.getElementById("gerarSenha").addEventListener("click", function() {
-        if (parseInt(campoTamanho.value) > 0) {
-            var novaSenha = gerarSenha(parseInt(campoTamanho.value));
+    document.getElementById("generate_password").addEventListener("click", function() {
+        if (parseInt(fieldlenght.value) > 0) {
+            var new_password = generate_password(parseInt(fieldlenght.value));
         } else {
-            var novaSenha = gerarSenha(12);
+            var new_password = generate_password(12);
         }
-        campo.value = novaSenha;
+        field.value = new_password;
     });
 </script>
 <?= $this->endSection('content')?>

@@ -6,32 +6,121 @@
         <img src="<?= base_url('/public/img/logo.png') ?>" alt="logomarca">
     </a>
 
-    <a href="<?=base_url('public/register')?>">
-        <span class="logout-button">Sair</span>    
+    <a href="<?=base_url('public/register')?>" class="logout-button">
+        <span>Sair</span>
     </a>
+    <a href="<?=base_url('public/generator')?>">
+        <button class="plus-btn">
+            &#43;    
+        </button>
+    </a>
+
 <?= $this->endSection('header')?>
 
 <?= $this->section('content')?>
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&#9666; Fechar</a>
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-</div>
 
-<div id="main">
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="openBtn">&#9776;</span>
-</div>
-<script>
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-    }
+<section>
+    <p class="msg-without-key">You haven't any keys yet :(</p>
+    
+    <ul class="board">
+        <li class="info-key-bx">
+            <div class="info-key-body">
+                <p class="info-key-title">Google</p>
+                <p class="info-key-login">emailteste@mail.com</p>
 
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-    }
-</script>
+                <div class="info-key-bttns">
+                    <div class="info-key-btn">
+                        <img src="<?= base_url('/public/img/trash.png') ?>" alt="delete icon">
+                    </div>
+                    <div class="info-key-btn">
+                        <img src="<?= base_url('/public/img/pen.png') ?>" alt="edit icon">
+                    </div>
+                    <div class="info-key-btn">
+                        <img src="<?= base_url('/public/img/copy-icon-wt.png') ?>" alt="copy icon">
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="info-key-bttns">
+                <div class="info-key-btn">
+                    <img src="<?= base_url('/public/img/trash.png') ?>" alt="logomarca">
+                </div>
+                <div class="info-key-btn">
+                    <img src="<?= base_url('/public/img/pen.png') ?>" alt="logomarca">
+                </div>
+            </div> -->
+            
+
+        </li>
+        <li class="info-key-bx">
+            <div class="info-key-body">
+                <p class="info-key-title">Google</p>
+                <p class="info-key-login">emailteste@mail.com</p>
+
+                <div class="info-key-bttns">
+                    <div class="info-key-btn">
+                        <img src="<?= base_url('/public/img/trash.png') ?>" alt="delete icon">
+                    </div>
+                    <div class="info-key-btn">
+                        <img src="<?= base_url('/public/img/pen.png') ?>" alt="edit icon">
+                    </div>
+                    <div class="info-key-btn">
+                        <img src="<?= base_url('/public/img/copy-icon-wt.png') ?>" alt="copy icon">
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="info-key-bttns">
+                <div class="info-key-btn">
+                    <img src="<?= base_url('/public/img/trash.png') ?>" alt="logomarca">
+                </div>
+                <div class="info-key-btn">
+                    <img src="<?= base_url('/public/img/pen.png') ?>" alt="logomarca">
+                </div>
+            </div> -->
+            
+
+        </li>
+        <li class="info-key-bx">
+            <div class="info-key-body">
+                <p class="info-key-title">Google</p>
+                <p class="info-key-login">emailteste@mail.com</p>
+
+                <div class="info-key-bttns">
+                    <div class="info-key-btn">
+                        <img src="<?= base_url('/public/img/trash.png') ?>" alt="delete icon">
+                    </div>
+                    <div class="info-key-btn">
+                        <img src="<?= base_url('/public/img/pen.png') ?>" alt="edit icon">
+                    </div>
+                    <div class="info-key-btn">
+                        <img src="<?= base_url('/public/img/copy-icon-wt.png') ?>" alt="copy icon">
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="info-key-bx">
+            <div class="info-key-body">
+                <p class="info-key-title">Google</p>
+                <p class="info-key-login">emailteste@mail.com</p>
+
+                <div class="info-key-bttns">
+                    <div class="info-key-btn">
+                        <img src="<?= base_url('/public/img/trash.png') ?>" alt="delete icon">
+                    </div>
+                    <div class="info-key-btn">
+                        <img src="<?= base_url('/public/img/pen.png') ?>" alt="edit icon">
+                    </div>
+                    <div class="info-key-btn">
+                        <img src="<?= base_url('/public/img/copy-icon-wt.png') ?>" alt="copy icon">
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</section>
+    
+
 <?= $this->endSection('content')?>
 
