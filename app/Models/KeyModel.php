@@ -6,19 +6,7 @@ use CodeIgniter\Model;
 
 class KeyModel extends Model
 {
-    protected $table            = 'keys';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
-    protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
-    protected $allowedFields    = [
-        'id',
-        'title',
-        'login',
-        'password',
-        'user_id',
-    ];
-
-    
+    protected $table = 'keys';
+    protected $primaryKey = 'id';
+    protected $allowedFields = ['title', 'login', 'password', 'user_id'];
 }

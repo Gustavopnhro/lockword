@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lockword - Gerador de Senha</title>
+    <title>Lockword</title>
     <link rel="stylesheet" href="<?= base_url('/public/css/style.css')?>">
     <link rel="shortcut icon" href="<?= base_url('/public/favicon.png')?>" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
