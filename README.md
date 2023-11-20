@@ -1,8 +1,8 @@
 <img src="/preview-images/logo-bg-white.png">
 
-<h1 style = "text-align: center">LOCKWORD</h1>
+<h1 style = "text-align: center; color: #1768AC; font-size: 60px; font-weight: 600">LOCKWORD</h1>
 
-<h2 style = "text-align: center"> Status: In Progress ⌛
+<h2 style = "text-align: center; color: #1768AC"> Status: In Progress ⌛
 
 <br>
 
