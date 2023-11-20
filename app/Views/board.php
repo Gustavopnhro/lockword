@@ -2,7 +2,7 @@
 
 <?= $this->section('header')?>
 
-    <a href="<?= base_url('/store') ?>">
+    <a href="<?= base_url('public/') ?>">
         <img src="<?= base_url('/public/img/logo.png') ?>" alt="logomarca">
     </a>
 
