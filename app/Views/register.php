@@ -22,7 +22,7 @@
             <input type="email" id="email" name="email" placeholder="youremail@aqui.com" required>
 
             <label for="password">Password</label>
-            <input type="password" id="senha" name="senha" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required>
+            <input type="password" id="senha" name="senha" placeholder="••••••••" required>
 
             <button type="submit" class="btn">Registrar</button>
         </form>

@@ -4,6 +4,12 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+:root {
+    --main-color: #0077B6;
+    --font-main-color: #F1F5F2;
+    
+}
+
 
 
 body {
