@@ -36,12 +36,11 @@ class Keys extends BaseController
 
         if ($this->validate($rules)) {
             $password = $this->request->getVar('field_pass');
-            $hashed = password_hash($password, PASSWORD_DEFAULT);
         
             $data = [
                 'title' => $this->request->getVar('field_title'),
                 'login' => $this->request->getVar('login_field'),
-                'password' => $hashed,
+                'password' => $password,
                 'user_id' => 1, // Altere conforme necessário
             ];
         
@@ -61,8 +60,14 @@ class Keys extends BaseController
         }
     }
 
-    public function delete()
+    public function delete($id)
     {
+        if ($id) {
+            $this->keyModel->delete($id);
+            return redirect()->to(base_url('public/board'));
+        } else {
+            return redirect()->to(base_url('public/board'));
+        }
     }
 
     public function edit($id)
