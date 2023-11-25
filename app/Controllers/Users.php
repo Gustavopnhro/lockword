@@ -14,8 +14,8 @@ class Users extends BaseController
         $this->userModel = new UserModel();
     }
     
-    public function index()
-    {
-    
+    public function login()
+    {   
+        
     }
 }

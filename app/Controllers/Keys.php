@@ -15,20 +15,30 @@ class Keys extends BaseController
 
     public function index()
     {
-        // $data['keys'] = $this->keyModel->findAll();
+        if (!session()->has('user_id')) {
+            return redirect()->to(base_url('/public'));
+        }
+
+        $userId = session()->get('user_id');
+
+
         return view('board', [
-            'keys' => $this->keyModel->paginate(10),
+            'keys' => $this->keyModel->where('user_id', $userId)->paginate(10),
             'pager' => $this->keyModel->pager
         ]);
     }
 
     public function create()
     {
+        if (!session()->has('user_id')) {
+            return redirect()->to(base_url('/public'));
+        }
         return view('form');
     }
 
     public function store()
     {
+        $userId = session()->get('user_id');
         $rules = [
             'field_title' => 'required|min_length[3]|max_length[100]',
             'field_pass' => 'required',
@@ -41,16 +51,14 @@ class Keys extends BaseController
                 'title' => $this->request->getVar('field_title'),
                 'login' => $this->request->getVar('login_field'),
                 'password' => $password,
-                'user_id' => 1, // Altere conforme necessário
+                'user_id' => $userId, // Altere conforme necessário
             ];
         
             $id = $this->request->getVar('id');
         
             if ($id) {
-                // Se houver um ID, atualize o registro
                 $this->keyModel->update($id, $data);
             } else {
-                // Se não houver um ID, crie um novo registro
                 $this->keyModel->insert($data);
             }
         
@@ -75,9 +83,5 @@ class Keys extends BaseController
         return view('form', [
             'key' => $this->keyModel->find($id)
         ]);
-    }
-
-    public function editAction() {
-       
     }
 }
