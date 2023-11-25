@@ -57,6 +57,7 @@ section {
     justify-content: center;
     height: 63.6vh;
     flex: 1;
+    flex-direction: column;
 }
 
 .generator-box {
