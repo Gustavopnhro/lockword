@@ -6,7 +6,7 @@
         <img src="<?= base_url('/public/img/logo.png') ?>" alt="logomarca">
     </a>
 
-    <a href="<?=base_url('public/register')?>" class="logout-button">
+    <a href="<?=base_url('public/logout')?>" class="logout-button">
         <span>Sair</span>
     </a>
     <a href="<?=base_url('public/create')?>">
