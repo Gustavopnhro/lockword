@@ -2,6 +2,7 @@
 
 use App\Controllers\Keys;
 
+// KEYS CRUD
 $routes->get('/create', 'Keys::create');
 $routes->post('/store', 'Keys::store');
 
@@ -12,5 +13,13 @@ $routes->get('/delete/(:num)', 'Keys::delete/$1');
 
 $routes->get('/board', 'Keys::index');
 
-$routes->get('/', 'Home::login');
-$routes->get('/register', 'Home::register');
+
+
+//USERS CRUD
+$routes->get('/', 'Auth::login');
+$routes->get('/register', 'Auth::register');
+
+$routes->post('/register', 'Auth::store');
+$routes->post('/', 'Auth::do_login');
+
+$routes->get('/logout', 'Auth::logout');
