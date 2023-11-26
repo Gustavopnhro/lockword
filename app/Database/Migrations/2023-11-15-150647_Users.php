@@ -30,7 +30,6 @@ class Users extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addField("pass_hash VARCHAR(255) DEFAULT NULL");
         $this->forge->createTable('Users');
     }
 
