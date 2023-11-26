@@ -26,7 +26,7 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="••••••••" minlength="6" required>
 
-            <button type="submit" class="btn">Registrar</button>
+            <button type="submit" class="btn">Register</button>
         <?php form_close();?>
     </section>
 <?= $this->endSection('content')?>

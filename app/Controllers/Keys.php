@@ -47,7 +47,7 @@ class Keys extends BaseController
 
         $userId = session()->get('user_id');
         $rules = [
-            'field_title' => 'required|min_length[3]|max_length[100]',
+            'field_title' => 'required',
             'field_pass' => 'required',
         ];
 

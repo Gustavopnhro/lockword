@@ -19,7 +19,7 @@
         <div class="generator-box">
             <?php echo form_open(base_url('public/store')); ?>
                 <label for="field_title" class="generator-label">Title</label>
-                <input type="text" id="field_title" value= "<?php echo isset($key['title']) ? $key['title'] : ''?>" name="field_title" required>
+                <input type="text" id="field_title" value= "<?php echo isset($key['title']) ? $key['title'] : ''?>" name="field_title" required minlength="6">
 
                 <label for="login_field" class="generator-label">Login</label>
                 <input type="text" id="login_field" value= "<?php echo isset($key['login']) ? $key['login'] : ''?>" name="login_field" placeholder="youremail@aqui.com">

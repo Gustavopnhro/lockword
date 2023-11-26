@@ -59,7 +59,7 @@ namespace App\Controllers;
                     return redirect()->to(base_url('/public/register'))->with('error', 'Email already exists');
                 }
                 $this->userModel->insert($data);
-                return redirect()->to(base_url('/public'))->with('message', "Conta criada com sucesso");
+                return redirect()->to(base_url('/public'))->with('message', "Your account as been created successfully");
             }
 
 

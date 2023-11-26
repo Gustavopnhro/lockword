@@ -11,7 +11,7 @@
     </div>  
 
     <a href="<?=base_url('public/logout')?>" class="logout-button">
-        <span>Sair</span>
+        <span>Logout</span>
     </a>
     <a href="<?=base_url('public/create')?>">
         <button class="plus-btn">
