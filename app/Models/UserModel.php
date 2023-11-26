@@ -8,6 +8,6 @@ class UserModel extends Model
 {
     protected $table = 'users';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['email', 'password', 'pass_hash'];
+    protected $allowedFields = ['name', 'email', 'password'];
 
 }

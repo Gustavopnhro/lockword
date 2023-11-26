@@ -56,7 +56,7 @@ namespace App\Controllers;
                 ];
 
                 if ($this->userModel->where('email', $data['email'])->first()) {
-                    return redirect()->to(base_url('/public/register'))->with('message', 'Email already exists');
+                    return redirect()->to(base_url('/public/register'))->with('error', 'Email already exists');
                 }
                 $this->userModel->insert($data);
                 return redirect()->to(base_url('/public'))->with('message', "Conta criada com sucesso");
@@ -68,7 +68,7 @@ namespace App\Controllers;
                 $validation = \Config\Services::validation();
 
                 $validation->setRules([
-                    'email' => 'required|valid_email',
+                    'email' => 'required',
                     'password' => 'required'
                 ]);
 
@@ -78,15 +78,18 @@ namespace App\Controllers;
 
                 $email = $this->request->getVar('email');
                 $password = $this->request->getVar('password');
-                $hashed = password_hash($password, PASSWORD_DEFAULT);
-
+                
                 $user = $this->userModel->where('email', $email)->first();
-
-                if (password_verify($password, $user['password'])) {
+                    
+                if (!$user){
+                    return redirect()->to(base_url('/public'))->with('error', 'Inexistent email');
+                }
+                if (password_verify($password, $user['password']) and $email = $user['email']) {
                     session()->set('user_id', $user['id']);
                     return redirect()->to(base_url('public/board'));
                 } else {
-                    return redirect()->to(base_url('/public'))->with('message', 'Incorrect password');
+                    return redirect()->to(base_url('/public'))->with('error', 'Wrong password');
+                    
                 }
             }
 

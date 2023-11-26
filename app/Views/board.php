@@ -7,9 +7,8 @@
     </a>
 
     <div class="username-box">
-        
         Welcome <?php echo $username['name']?>!
-    </div>
+    </div>  
 
     <a href="<?=base_url('public/logout')?>" class="logout-button">
         <span>Sair</span>
@@ -24,7 +23,15 @@
 
 <?= $this->section('content')?>
 
+    <?php
+            $message = \Config\Services::session()->getFlashdata('message');
 
+            if ($message !== null && !empty($message)) {
+                echo '<div class="message" id="message">';
+                echo \Config\Services::session()->getFlashdata('message');
+                echo '</div>';
+            }
+        ?>
 <section>    
     <ul class="board">
     <?php if (!empty($keys)):?>
@@ -63,6 +70,7 @@
                 document.execCommand("copy");
                 document.body.removeChild(tempInput);
             }
+
         </script>
     
         <?php endforeach?>

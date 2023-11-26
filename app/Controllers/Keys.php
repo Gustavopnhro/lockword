@@ -69,7 +69,7 @@ class Keys extends BaseController
                 $this->keyModel->insert($data);
             }
         
-            return redirect()->to(base_url('public/board'));
+            return redirect()->to(base_url('/public/board'))->with('message', "The key was created!");
         } else {
             echo $this->validator->listErrors();
         }

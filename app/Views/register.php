@@ -14,16 +14,17 @@
 
 <?= $this->section('content')?>
     <section>
-        <?= \Config\Services::session()->getFlashdata('error') ?>
+        <?= \Config\Services::session()->getFlashdata('message') ?>
+
         <?php echo form_open(base_url('public/register'));?>
-            <label for="Name">Name</label>
-            <input type="text" id="nome" name="nome" placeholder="Your Name" required>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
 
             <label for="email">E-mail</label>
             <input type="email" id="email" name="email" placeholder="youremail@aqui.com" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="••••••••" required>
+            <input type="password" id="password" name="password" placeholder="••••••••" minlength="6" required>
 
             <button type="submit" class="btn">Registrar</button>
         <?php form_close();?>
