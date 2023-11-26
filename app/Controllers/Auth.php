@@ -40,27 +40,26 @@ namespace App\Controllers;
                 $validation = \Config\Services::validation();
 
                 $validation->setRules([
-                    'nome' => 'required',
-                    'email' => 'required|valid_email|is_unique[users.email]',
-                    'password' => 'required|min_length[6]',
+                    'name' => 'required',
+                    'email' => 'required',
+                    'password' => 'required',
                 ]);
 
                 if (!$validation->withRequest($this->request)->run()) {
-                    return redirect()->to(base_url('/public/register'))->withInput()->with('validation', $validation);
+                    return redirect()->to(base_url('/public/register'))->with('message', $validation);
                 }
 
                 $data = [
-                    'name' => $this->request->getVar('nome'),
+                    'name' => $this->request->getVar('name'),
                     'email' => $this->request->getVar('email'),
                     'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 ];
 
                 if ($this->userModel->where('email', $data['email'])->first()) {
-                    return redirect()->to(base_url('/public/register'))->with('error', 'Email already exists');
+                    return redirect()->to(base_url('/public/register'))->with('message', 'Email already exists');
                 }
-
                 $this->userModel->insert($data);
-                return redirect()->to(base_url('/public'));
+                return redirect()->to(base_url('/public'))->with('message', "Conta criada com sucesso");
             }
 
 
@@ -74,7 +73,7 @@ namespace App\Controllers;
                 ]);
 
                 if (!$validation->withRequest($this->request)->run()) {
-                    return redirect()->to(base_url('/public'))->withInput()->with('validation', $validation);
+                    return redirect()->to(base_url('/public'))->with('message', $validation);
                 }
 
                 $email = $this->request->getVar('email');
@@ -84,12 +83,10 @@ namespace App\Controllers;
                 $user = $this->userModel->where('email', $email)->first();
 
                 if (password_verify($password, $user['password'])) {
-                    // Autenticação bem-sucedida
                     session()->set('user_id', $user['id']);
                     return redirect()->to(base_url('public/board'));
                 } else {
-                    // Senha incorreta
-                    return redirect()->to(base_url('/public'))->with('error', 'Incorrect password');
+                    return redirect()->to(base_url('/public'))->with('message', 'Incorrect password');
                 }
             }
 

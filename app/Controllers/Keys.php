@@ -3,14 +3,16 @@
 namespace App\Controllers;
 
 use App\Models\KeyModel;
+use App\Models\UserModel;
 
 class Keys extends BaseController
 {
     private $keyModel;
-
+    private $userModel;
     public function __construct()
     {
         $this->keyModel = new KeyModel();
+        $this->userModel = new UserModel(); 
     }
 
     public function index()
@@ -19,12 +21,13 @@ class Keys extends BaseController
             return redirect()->to(base_url('/public'));
         }
 
+        
         $userId = session()->get('user_id');
-
 
         return view('board', [
             'keys' => $this->keyModel->where('user_id', $userId)->paginate(10),
-            'pager' => $this->keyModel->pager
+            'pager' => $this->keyModel->pager,
+            'username' => $this->userModel->where('id', $userId)->first(),
         ]);
     }
 
@@ -38,6 +41,10 @@ class Keys extends BaseController
 
     public function store()
     {
+        if (!session()->has('user_id')) {
+            return redirect()->to(base_url('/public'));
+        }
+
         $userId = session()->get('user_id');
         $rules = [
             'field_title' => 'required|min_length[3]|max_length[100]',
@@ -51,7 +58,7 @@ class Keys extends BaseController
                 'title' => $this->request->getVar('field_title'),
                 'login' => $this->request->getVar('login_field'),
                 'password' => $password,
-                'user_id' => $userId, // Altere conforme necessário
+                'user_id' => $userId,
             ];
         
             $id = $this->request->getVar('id');
@@ -70,6 +77,10 @@ class Keys extends BaseController
 
     public function delete($id)
     {
+        if (!session()->has('user_id')) {
+            return redirect()->to(base_url('/public'));
+        }
+
         if ($id) {
             $this->keyModel->delete($id);
             return redirect()->to(base_url('public/board'));
@@ -80,6 +91,10 @@ class Keys extends BaseController
 
     public function edit($id)
     {
+        if (!session()->has('user_id')) {
+            return redirect()->to(base_url('/public'));
+        }
+        
         return view('form', [
             'key' => $this->keyModel->find($id)
         ]);

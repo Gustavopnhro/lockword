@@ -2,6 +2,10 @@
 
 <?= $this->section('header')?>
 
+    <a href="<?=base_url('public/')?>" class="back-arrow">
+        ←
+    </a>
+
     <a href="<?=base_url('public/')?>">
         <img src="<?= base_url('/public/img/logo.png') ?>" alt="logomarca">
     </a>
